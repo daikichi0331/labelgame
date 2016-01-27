@@ -12,14 +12,14 @@ import AudioToolbox
 class ViewController: UIViewController {
 
     var xArray: [CGFloat] = [100.0, 200.0, 300.0, 400.0] // x座標の配列
-    var y0: CGFloat = -140 // y座標
-    var y1: CGFloat = -140
-    var y2: CGFloat = -140
-    var y3: CGFloat = -140
-    var y4: CGFloat = 560
-    var y5: CGFloat = 560
-    var y6: CGFloat = 560
-    var y7: CGFloat = 560
+    var yDown0: CGFloat = -140 // y座標
+    var yDown1: CGFloat = -140
+    var yDown2: CGFloat = -140
+    var yDown3: CGFloat = -140
+    var yUp0: CGFloat = 560
+    var yUp1: CGFloat = 560
+    var yUp2: CGFloat = 560
+    var yUp3: CGFloat = 560
     
     
     
@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         
     }
     
+    //0~3の中から一つ選んでImageView作る
     func onUpdate1(timer1 : NSTimer) {
         let randInt = Int(rand()%4)
         NSLog("\(randInt)")
@@ -67,39 +68,68 @@ class ViewController: UIViewController {
         }
     }
     
+    //ImageViewを動かす
     func onUpdate2(timer2 : NSTimer) {
         
         if downImageView0 != nil{
-            y0 = y0 + 1
-            downImageView0.center = CGPointMake(60, y0)
+            yDown0 = yDown0 + 1
+            downImageView0.center = CGPointMake(60, yDown0)
         }
         if downImageView1 != nil{
-            y1 = y1 + 1
-            downImageView1.center = CGPointMake(150, y1)
+            yDown1 = yDown1 + 1
+            downImageView1.center = CGPointMake(150, yDown1)
         }
         if downImageView2 != nil{
-            y2 = y2 + 1
-            downImageView2.center = CGPointMake(240, y2)
+            yDown2 = yDown2 + 1
+            downImageView2.center = CGPointMake(240, yDown2)
         }
         if downImageView3 != nil{
-            y3 = y3 + 1
-            downImageView3.center = CGPointMake(330, y3)
+            yDown3 = yDown3 + 1
+            downImageView3.center = CGPointMake(330, yDown3)
         }
+        
+        
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+        
         if upImageView0 != nil{
-            y4 = y4 - 1
-            upImageView0.center = CGPointMake(60, y4)
+            if yUp0 >= 100 {
+                yUp0 = yUp0 - 1
+                upImageView0.center = CGPointMake(60, yUp0)
+            }else{
+                upImageView0.removeFromSuperview()
+                upImageView0 = nil
+
+                
+            }
         }
+        
         if upImageView1 != nil{
-            y5 = y5 - 1
-            upImageView1.center = CGPointMake(150, y5)
+            if yUp1 >= 100 {
+                yUp1 = yUp1 - 1
+                upImageView1.center = CGPointMake(150, yUp1)
+            }else{
+            upImageView1.removeFromSuperview()
+            upImageView1 = nil
+            }
         }
         if upImageView2 != nil{
-            y6 = y6 - 1
-            upImageView2.center = CGPointMake(240, y6)
+            if yUp2 >= 100 {
+                yUp2 = yUp2 - 1
+                upImageView2.center = CGPointMake(240, yUp2)
+            }else{
+                upImageView2.removeFromSuperview()
+                upImageView2 = nil
+            }
         }
         if upImageView3 != nil{
-            y7 = y7 - 1
-            upImageView3.center = CGPointMake(330, y7)
+            if yUp3 >= 100{
+                yUp3 = yUp3 - 1
+                upImageView3.center = CGPointMake(330, yUp3)
+            }else{
+                upImageView3.removeFromSuperview()
+                upImageView3 = nil
+            }
         }
     }
     
@@ -107,7 +137,7 @@ class ViewController: UIViewController {
     //ImageViewを作る機能
     func makeImageView0() {
         downImageView0 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        downImageView0.center = CGPointMake(60, y0)
+        downImageView0.center = CGPointMake(60, yDown0)
         downImageView0.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.3)
         self.view.addSubview(downImageView0)
     }
@@ -115,7 +145,7 @@ class ViewController: UIViewController {
     
     func makeImageView1() {
         downImageView1 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        downImageView1.center = CGPointMake(150, y1)
+        downImageView1.center = CGPointMake(150, yDown1)
         downImageView1.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.3)
         self.view.addSubview(downImageView1)
     }
@@ -123,7 +153,7 @@ class ViewController: UIViewController {
     
     func makeImageView2() {
         downImageView2 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        downImageView2.center = CGPointMake(240, y2)
+        downImageView2.center = CGPointMake(240, yDown2)
         downImageView2.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.3)
         self.view.addSubview(downImageView2)
     }
@@ -131,7 +161,7 @@ class ViewController: UIViewController {
     
     func makeImageView3() {
         downImageView3 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        downImageView3.center = CGPointMake(330, y3)
+        downImageView3.center = CGPointMake(330, yDown3)
         downImageView3.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.3)
         self.view.addSubview(downImageView3)
     }
@@ -144,7 +174,7 @@ class ViewController: UIViewController {
        func makeImageView4() {
         if upImageView0 == nil {
         upImageView0 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        upImageView0.center = CGPointMake(60,y4)
+        upImageView0.center = CGPointMake(60,yUp0)
         upImageView0.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
         self.view.addSubview(upImageView0)
         }
@@ -158,7 +188,7 @@ class ViewController: UIViewController {
     func makeImageView5() {
         if upImageView1 == nil {
         upImageView1 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        upImageView1.center = CGPointMake(150,y5)
+        upImageView1.center = CGPointMake(150,yUp1)
         upImageView1.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
         self.view.addSubview(upImageView1)
         }
@@ -170,7 +200,7 @@ class ViewController: UIViewController {
     func makeImageView6() {
         if upImageView2 == nil {
         upImageView2 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        upImageView2.center = CGPointMake(240,y6)
+        upImageView2.center = CGPointMake(240,yUp2)
         upImageView2.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
         self.view.addSubview(upImageView2)
         }
@@ -183,13 +213,11 @@ class ViewController: UIViewController {
     func makeImageView7() {
         if upImageView3 == nil {
         upImageView3 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
-        upImageView3.center = CGPointMake(330,y7)
+        upImageView3.center = CGPointMake(330,yUp3)
         upImageView3.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
         self.view.addSubview(upImageView3)
         }
     }
-    
-
 
 
     
