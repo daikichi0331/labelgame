@@ -1,63 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="acq-gr-38W">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="labelgame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController wantsFullScreenLayout="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="labelgame" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="android-2160x1920-wallpaper_02840.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oVu-JB-cKS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAN-Rj-XgJ">
                                 <rect key="frame" x="29" y="557" width="60" height="41"/>
-                                <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="createImage4" destination="BYZ-38-t0r" eventType="touchUpInside" id="qgk-96-ZfC"/>
+                                    <action selector="createUpImage0" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Pg-9F-ujV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcW-aE-c5N">
                                 <rect key="frame" x="126" y="563" width="46" height="30"/>
-                                <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="createImage5" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bB-7R-xqU"/>
+                                    <action selector="createUpImage1" destination="BYZ-38-t0r" eventType="touchUpInside" id="vm4-3X-vns"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bl-kD-l72">
                                 <rect key="frame" x="220" y="563" width="46" height="30"/>
-                                <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="createImage6" destination="BYZ-38-t0r" eventType="touchUpInside" id="umy-S7-rGB"/>
+                                    <action selector="createUpImage2" destination="BYZ-38-t0r" eventType="touchUpInside" id="pnl-z6-rOf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bo-66-Bfn">
                                 <rect key="frame" x="309" y="563" width="46" height="30"/>
-                                <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="createImage7" destination="BYZ-38-t0r" eventType="touchUpInside" id="ckU-DG-vLu"/>
+                                    <action selector="createUpImage3" destination="BYZ-38-t0r" eventType="touchUpInside" id="OQP-Xv-l6U"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-kd-boj">
+                                <rect key="frame" x="90" y="34" width="242" height="80"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgy-DP-wza">
+                                <rect key="frame" x="164" y="226" width="81" height="32"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="iQU-ZY-EU7"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="button" destination="sgy-DP-wza" id="3cS-YW-Lpu"/>
+                        <outlet property="label" destination="lMZ-kd-boj" id="jhc-9Y-UZK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374.5" y="285.5"/>
+            <point key="canvasLocation" x="992" y="186"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="swV-aj-3hd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="acq-gr-38W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="veR-p3-bO9"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="12H-Ib-Eud">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ReJ-X5-Dgu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQk-bQ-nZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="352" y="118"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="android-2160x1920-wallpaper_02840.jpg" width="2160" height="1920"/>
+    </resources>
 </document>

@@ -14,6 +14,7 @@
 		233BF41F1C05C3DE003A684C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233BF41D1C05C3DE003A684C /* LaunchScreen.storyboard */; };
 		233BF42A1C05C3DF003A684C /* labelgameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233BF4291C05C3DF003A684C /* labelgameTests.swift */; };
 		233BF4351C05C3DF003A684C /* labelgameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233BF4341C05C3DF003A684C /* labelgameUITests.swift */; };
+		237152B41C6214C700EC54EE /* android-2160x1920-wallpaper_02840.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 237152B31C6214C700EC54EE /* android-2160x1920-wallpaper_02840.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		233BF4301C05C3DF003A684C /* labelgameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = labelgameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		233BF4341C05C3DF003A684C /* labelgameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = labelgameUITests.swift; sourceTree = "<group>"; };
 		233BF4361C05C3DF003A684C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		237152B31C6214C700EC54EE /* android-2160x1920-wallpaper_02840.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "android-2160x1920-wallpaper_02840.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				233BF4141C05C3DD003A684C /* AppDelegate.swift */,
 				233BF4161C05C3DD003A684C /* ViewController.swift */,
 				233BF4181C05C3DD003A684C /* Main.storyboard */,
+				237152B31C6214C700EC54EE /* android-2160x1920-wallpaper_02840.jpg */,
 				233BF41B1C05C3DE003A684C /* Assets.xcassets */,
 				233BF41D1C05C3DE003A684C /* LaunchScreen.storyboard */,
 				233BF4201C05C3DE003A684C /* Info.plist */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				233BF41F1C05C3DE003A684C /* LaunchScreen.storyboard in Resources */,
+				237152B41C6214C700EC54EE /* android-2160x1920-wallpaper_02840.jpg in Resources */,
 				233BF41C1C05C3DE003A684C /* Assets.xcassets in Resources */,
 				233BF41A1C05C3DD003A684C /* Main.storyboard in Resources */,
 			);
@@ -482,6 +486,7 @@
 				233BF43B1C05C3DF003A684C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		233BF43C1C05C3DF003A684C /* Build configuration list for PBXNativeTarget "labelgameTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				233BF43E1C05C3DF003A684C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		233BF43F1C05C3DF003A684C /* Build configuration list for PBXNativeTarget "labelgameUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				233BF4411C05C3DF003A684C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
