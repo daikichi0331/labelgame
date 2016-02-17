@@ -54,8 +54,14 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeG-1Y-pS0">
+                                <rect key="frame" x="141" y="151" width="125" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgy-DP-wza">
-                                <rect key="frame" x="164" y="226" width="81" height="32"/>
+                                <rect key="frame" x="163" y="248" width="81" height="32"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
@@ -67,11 +73,12 @@
                     <connections>
                         <outlet property="button" destination="sgy-DP-wza" id="3cS-YW-Lpu"/>
                         <outlet property="label" destination="lMZ-kd-boj" id="jhc-9Y-UZK"/>
+                        <outlet property="scorelabel" destination="BeG-1Y-pS0" id="x0k-Mn-pn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="186"/>
+            <point key="canvasLocation" x="1022" y="118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="swV-aj-3hd">

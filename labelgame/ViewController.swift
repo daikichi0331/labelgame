@@ -26,6 +26,9 @@ class ViewController: UIViewController {
     var dy2: CGFloat = 2
     var dy3: CGFloat = 2
     
+    var speed: CGFloat = 0
+    
+    
     var timer1: NSTimer!
     var timer2: NSTimer!
     
@@ -43,7 +46,13 @@ class ViewController: UIViewController {
     
     
     @IBOutlet var label : UILabel!
+    @IBOutlet var scorelabel :UILabel!
     @IBOutlet var button : UIButton!
+    
+    
+    var score = 0
+    
+    
     
     
     
@@ -66,6 +75,8 @@ class ViewController: UIViewController {
     
     //0~3の中から一つ選んでImageView作る
     func onUpdate1(timer1 : NSTimer) {
+        speed = speed + 0.4
+
         let randInt = Int(rand()%4)
         NSLog("\(randInt)")
         switch randInt {
@@ -82,15 +93,20 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    
+    
     //ImageViewを動かす
     func onUpdate2(timer2 : NSTimer) {
-        
+    
         if downImageView0 != nil{
             if yDown0 < -200 {
                 downImageView0.removeFromSuperview()
                 downImageView0 = nil
             }else {
-                yDown0 = yDown0 + dy0
+                yDown0 = yDown0 + dy0 + speed
                 downImageView0.center = CGPointMake(60, yDown0)
             }
             if yDown0 >= 620{
@@ -98,6 +114,7 @@ class ViewController: UIViewController {
                 timer2.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
+                scorelabel.text = String(score)
                 
             }
         }
@@ -106,7 +123,7 @@ class ViewController: UIViewController {
                 downImageView1.removeFromSuperview()
                 downImageView1 = nil
             }else{
-                yDown1 = yDown1 + dy1
+                yDown1 = yDown1 + dy1 + speed
                 downImageView1.center = CGPointMake(150, yDown1)
                 
             }
@@ -115,6 +132,7 @@ class ViewController: UIViewController {
                 timer2.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
+                scorelabel.text = String(score)
             }
         }
         if downImageView2 != nil{
@@ -123,7 +141,7 @@ class ViewController: UIViewController {
                 downImageView2 = nil
 
             }else{
-                yDown2 = yDown2 + dy2
+                yDown2 = yDown2 + dy2 + speed
                 downImageView2.center = CGPointMake(240, yDown2)
 
             }
@@ -132,6 +150,8 @@ class ViewController: UIViewController {
                 timer2.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
+                scorelabel.text = String(score)
+                
             }
         }
         if downImageView3 != nil{
@@ -139,7 +159,7 @@ class ViewController: UIViewController {
                 downImageView3.removeFromSuperview()
                 downImageView3 = nil
             }else{
-                yDown3 = yDown3 + dy3
+                yDown3 = yDown3 + dy3 + speed
                 downImageView3.center = CGPointMake(330, yDown3)
                 
             }
@@ -148,6 +168,7 @@ class ViewController: UIViewController {
                 timer2.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
+                scorelabel.text = String(score)
             }
         }
         
@@ -161,10 +182,11 @@ class ViewController: UIViewController {
                 upImageView0 = nil
                 dy0 = 1
             }else if CGRectIntersectsRect(upImageView0.frame, downImageView0.frame) == true {
-                dy0 = -1
+                dy0 = -1 - speed * 2
             }else{
-                yUp0 = yUp0 - 1
+                yUp0 = yUp0 - 1 - speed * 2
                 upImageView0.center = CGPointMake(60, yUp0)
+                score = score + 5
             }
         }
         
@@ -174,11 +196,12 @@ class ViewController: UIViewController {
                 upImageView1 = nil
                 dy1 = 1
             }else if CGRectIntersectsRect(upImageView1.frame, downImageView1.frame) == true{
-                dy1 = -1
+                dy1 = -1 - speed * 2
             }
             else{
-                yUp1 = yUp1 - 1
+                yUp1 = yUp1 - 1 - speed * 2
                 upImageView1.center = CGPointMake(150, yUp1)
+                score = score + 5
             }
         }
         if upImageView2 != nil{
@@ -187,11 +210,12 @@ class ViewController: UIViewController {
                 upImageView2 = nil
                 dy2 = 1
             }else if CGRectIntersectsRect(upImageView2.frame, downImageView2.frame) == true{
-                dy2 = -1
+                dy2 = -1 - speed * 2
             }
             else{
-                yUp2 = yUp2 - 1
+                yUp2 = yUp2 - 1 - speed * 2
                 upImageView2.center = CGPointMake(240, yUp2)
+                score = score + 5
             }
         }
         if upImageView3 != nil{
@@ -201,11 +225,12 @@ class ViewController: UIViewController {
                 dy3 = 1
                 }
             else if CGRectIntersectsRect(upImageView3.frame, downImageView3.frame) == true{
-                dy3 = -1
+                dy3 = -1 - speed * 2
             }
             else{
-                yUp3 = yUp3 - 1
+                yUp3 = yUp3 - 1 - speed * 2
                 upImageView3.center = CGPointMake(330, yUp3)
+                score = score + 5
                 
             }
         }
@@ -303,8 +328,10 @@ class ViewController: UIViewController {
     }
     
     func reset(sender: UIButton!) {
-        self.navigationController?.popViewControllerAnimated(true)
+        
     }
+    
+    
 
     
     
