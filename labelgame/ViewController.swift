@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     var yDown1: CGFloat = -140
     var yDown2: CGFloat = -140
     var yDown3: CGFloat = -140
+    var yDown4: CGFloat = -140
+    var yDown5: CGFloat = -140
+    var yDown6: CGFloat = -140
+    var yDown7: CGFloat = -140
+    
     var yUp0: CGFloat = 560
     var yUp1: CGFloat = 560
     var yUp2: CGFloat = 560
@@ -25,18 +30,27 @@ class ViewController: UIViewController {
     var dy1: CGFloat = 2
     var dy2: CGFloat = 2
     var dy3: CGFloat = 2
+    var dy4: CGFloat = 2
+    var dy5: CGFloat = 2
+    var dy6: CGFloat = 2
+    var dy7: CGFloat = 2
     
     var speed: CGFloat = 0
     
     
     var timer1: NSTimer!
     var timer2: NSTimer!
+    var timer3: NSTimer!
     
     
     var downImageView0: UIImageView!
     var downImageView1: UIImageView!
     var downImageView2: UIImageView!
     var downImageView3: UIImageView!
+    var trapdownImageView4: UIImageView!
+    var trapdownImageView5: UIImageView!
+    var trapdownImageView6: UIImageView!
+    var trapdownImageView7: UIImageView!
     
     var upImageView0: UIImageView!
     var upImageView1: UIImageView!
@@ -68,6 +82,9 @@ class ViewController: UIViewController {
         timer2 = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "onUpdate2:", userInfo: nil, repeats: true)
         timer2.fire()
         
+        timer3 = NSTimer.scheduledTimerWithTimeInterval(6.0, target: self, selector: "onUpdate3:", userInfo: nil,repeats: true)
+        timer3.fire()
+        
         button.addTarget(self, action: "reset:", forControlEvents: .TouchUpInside)
         button.hidden = true
         
@@ -75,8 +92,8 @@ class ViewController: UIViewController {
     
     //0~3の中から一つ選んでImageView作る
     func onUpdate1(timer1 : NSTimer) {
-        speed = speed + 0.4
-
+        speed = speed + 0.2
+        
         let randInt = Int(rand()%4)
         NSLog("\(randInt)")
         switch randInt {
@@ -93,6 +110,25 @@ class ViewController: UIViewController {
         }
     }
     
+    //トラップ用
+    func onUpdate3(timer3 : NSTimer) {
+        let randInt = Int(rand()%4)
+        NSLog("\(randInt)")
+        switch randInt {
+        case 0:
+            makeDownImageView4()
+        case 1:
+            makeDownImageView5()
+        case 2:
+            makeDownImageView6()
+        case 3:
+            makeDownImageView7()
+            
+        default:
+            break
+        }
+    }
+    
     
     
     
@@ -100,7 +136,7 @@ class ViewController: UIViewController {
     
     //ImageViewを動かす
     func onUpdate2(timer2 : NSTimer) {
-    
+        
         if downImageView0 != nil{
             if yDown0 < -200 {
                 downImageView0.removeFromSuperview()
@@ -110,8 +146,9 @@ class ViewController: UIViewController {
                 downImageView0.center = CGPointMake(60, yDown0)
             }
             if yDown0 >= 620{
-               timer1.invalidate()
+                timer1.invalidate()
                 timer2.invalidate()
+                timer3.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
                 scorelabel.text = String(score)
@@ -130,6 +167,7 @@ class ViewController: UIViewController {
             if yDown1 >= 620{
                 timer1.invalidate()
                 timer2.invalidate()
+                timer3.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
                 scorelabel.text = String(score)
@@ -139,15 +177,16 @@ class ViewController: UIViewController {
             if yDown2 < -200 {
                 downImageView2.removeFromSuperview()
                 downImageView2 = nil
-
+                
             }else{
                 yDown2 = yDown2 + dy2 + speed
                 downImageView2.center = CGPointMake(240, yDown2)
-
+                
             }
             if yDown2 >= 620{
                 timer1.invalidate()
                 timer2.invalidate()
+                timer3.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
                 scorelabel.text = String(score)
@@ -166,11 +205,56 @@ class ViewController: UIViewController {
             if yDown3 >= 620{
                 timer1.invalidate()
                 timer2.invalidate()
+                timer3.invalidate()
                 label.text = String("GAME OVER")
                 button.hidden = false
                 scorelabel.text = String(score)
             }
         }
+        if trapdownImageView4 != nil{
+            if yDown4 > 800{
+                trapdownImageView4.removeFromSuperview()
+                trapdownImageView4 = nil
+            }else{
+                yDown4 = yDown4 + dy4 + speed
+                trapdownImageView4.center = CGPointMake(60, yDown4)
+            }
+            
+        }
+        if trapdownImageView5 != nil{
+            if yDown5 > 800{
+                trapdownImageView5.removeFromSuperview()
+                trapdownImageView5 = nil
+            }else{
+                yDown5 = yDown5 + dy5 + speed
+                trapdownImageView5.center = CGPointMake(150, yDown5)
+            }
+            
+        }
+        if trapdownImageView6 != nil{
+            if yDown6 > 800{
+                trapdownImageView6.removeFromSuperview()
+                trapdownImageView6 = nil
+            }else{
+                yDown6 = yDown6 + dy6 + speed
+                trapdownImageView6.center = CGPointMake(240, yDown6)
+            }
+            
+        }
+        if trapdownImageView7 != nil{
+            if yDown7 > 800{
+                trapdownImageView7.removeFromSuperview()
+                trapdownImageView7 = nil
+            }else{
+                yDown7 = yDown7 + dy7 + speed
+                trapdownImageView7.center = CGPointMake(330, yDown7)
+            }
+            
+        }
+        
+        
+        
+        
         
         //////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////
@@ -181,14 +265,30 @@ class ViewController: UIViewController {
                 upImageView0.removeFromSuperview()
                 upImageView0 = nil
                 dy0 = 1
-            }else if CGRectIntersectsRect(upImageView0.frame, downImageView0.frame) == true {
-                dy0 = -1 - speed * 2
             }else{
                 yUp0 = yUp0 - 1 - speed * 2
                 upImageView0.center = CGPointMake(60, yUp0)
-                score = score + 5
+                
+                if downImageView0 != nil {
+                    
+                    if CGRectIntersectsRect(upImageView0.frame, downImageView0.frame) == true {
+                        dy0 = -1 - speed * 2
+                        score = score + 5
+                    }
+                }
+            }
+            if trapdownImageView4 != nil{
+                if CGRectIntersectsRect(upImageView0.frame, trapdownImageView4.frame) == true{
+                    timer1.invalidate()
+                    timer2.invalidate()
+                    timer3.invalidate()
+                    label.text = String("GAME OVER")
+                    scorelabel.text = String(score)
+                }
             }
         }
+        
+        
         
         if upImageView1 != nil{
             if yUp1 < 0 {
@@ -197,11 +297,19 @@ class ViewController: UIViewController {
                 dy1 = 1
             }else if CGRectIntersectsRect(upImageView1.frame, downImageView1.frame) == true{
                 dy1 = -1 - speed * 2
+                score = score + 5
             }
-            else{
+        
+            if CGRectIntersectsRect(upImageView1.frame, trapdownImageView5.frame) == true{
+                timer1.invalidate()
+                timer2.invalidate()
+                timer3.invalidate()
+                label.text = String("GAME OVER")
+                
+            }else{
                 yUp1 = yUp1 - 1 - speed * 2
                 upImageView1.center = CGPointMake(150, yUp1)
-                score = score + 5
+                
             }
         }
         if upImageView2 != nil{
@@ -211,26 +319,29 @@ class ViewController: UIViewController {
                 dy2 = 1
             }else if CGRectIntersectsRect(upImageView2.frame, downImageView2.frame) == true{
                 dy2 = -1 - speed * 2
+                score = score + 5
+
             }
             else{
                 yUp2 = yUp2 - 1 - speed * 2
                 upImageView2.center = CGPointMake(240, yUp2)
-                score = score + 5
-            }
+                            }
         }
         if upImageView3 != nil{
             if yUp3 < 0{
                 upImageView3.removeFromSuperview()
                 upImageView3 = nil
                 dy3 = 1
-                }
+            }
             else if CGRectIntersectsRect(upImageView3.frame, downImageView3.frame) == true{
                 dy3 = -1 - speed * 2
+                score = score + 5
+
             }
             else{
                 yUp3 = yUp3 - 1 - speed * 2
                 upImageView3.center = CGPointMake(330, yUp3)
-                score = score + 5
+                
                 
             }
         }
@@ -248,7 +359,7 @@ class ViewController: UIViewController {
             self.view.addSubview(downImageView0)
         }
         
-            
+        
         
     }
     
@@ -285,6 +396,47 @@ class ViewController: UIViewController {
         }
     }
     
+    //トラップ
+    func makeDownImageView4() {
+        if trapdownImageView4 == nil {
+            yDown4 = -140
+            trapdownImageView4 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+            trapdownImageView4.center = CGPointMake(60, yDown4)
+            trapdownImageView4.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.view.addSubview(trapdownImageView4)
+        }
+    }
+    func makeDownImageView5() {
+        if trapdownImageView5 == nil {
+            yDown5 = -140
+            trapdownImageView5 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+            trapdownImageView5.center = CGPointMake(150, yDown5)
+            trapdownImageView5.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.view.addSubview(trapdownImageView5)
+        }
+    }
+    func makeDownImageView6() {
+        if trapdownImageView6 == nil {
+            yDown6 = -140
+            trapdownImageView6 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+            trapdownImageView6.center = CGPointMake(240, yDown6)
+            trapdownImageView6.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.view.addSubview(trapdownImageView6)
+        }
+    }
+    func makeDownImageView7() {
+        if trapdownImageView7 == nil {
+            yDown7 = -140
+            trapdownImageView7 = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+            trapdownImageView7.center = CGPointMake(330, yDown7)
+            trapdownImageView7.backgroundColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.view.addSubview(trapdownImageView7)
+        }
+    }
+    
+    
+    
+    
     //上に行く奴
     @IBAction func createUpImage0() {
         if upImageView0 == nil {
@@ -293,6 +445,7 @@ class ViewController: UIViewController {
             upImageView0.center = CGPointMake(60,yUp0)
             upImageView0.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
             self.view.addSubview(upImageView0)
+            
         }
     }
     
@@ -304,8 +457,12 @@ class ViewController: UIViewController {
             upImageView1.center = CGPointMake(150,yUp1)
             upImageView1.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
             self.view.addSubview(upImageView1)
+            
         }
+        
     }
+    
+    
     
     @IBAction func createUpImage2() {
         if upImageView2 == nil {
@@ -314,7 +471,7 @@ class ViewController: UIViewController {
             upImageView2.center = CGPointMake(240,yUp2)
             upImageView2.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
             self.view.addSubview(upImageView2)
-        }
+                    }
     }
     
     @IBAction func createUpImage3() {
@@ -324,16 +481,13 @@ class ViewController: UIViewController {
             upImageView3.center = CGPointMake(330,yUp3)
             upImageView3.backgroundColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.3)
             self.view.addSubview(upImageView3)
+            
         }
     }
     
     func reset(sender: UIButton!) {
         
     }
-    
-    
-
-    
     
     
     override func didReceiveMemoryWarning() {
